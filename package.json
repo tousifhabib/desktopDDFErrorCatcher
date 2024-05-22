@@ -1,0 +1,32 @@
+{
+  "name": "sampleelec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-xlsx": "^0.24.0"
+  },
+  "devDependencies": {
+    "electron": "^30.0.6",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.example.sampleelec",
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}
