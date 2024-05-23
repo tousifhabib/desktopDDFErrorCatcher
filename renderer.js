@@ -44,7 +44,19 @@ function clearMessages() {
 
 function displayResults(results) {
     resultContainer.innerHTML = results.map(({file, ddf}) => {
-        const errorContent = ddf.Response && ddf.Response.error ? formatError(ddf.Response.error) : '<p class="success-message">No error!</p>';
+        let errorContent = '';
+
+        ddf.sheets.forEach((sheet, index) => {
+            if (sheet.error) {
+                errorContent += `<h4>Sheet #${index} "${sheet.name}":</h4>`;
+                errorContent += formatError(sheet.error);
+            }
+        });
+
+        if (errorContent === '') {
+            errorContent = '<p class="success-message">No error!</p>';
+        }
+
         return `
             <div class="result-item">
                 <h3>${file}</h3>

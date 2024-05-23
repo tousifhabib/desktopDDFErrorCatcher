@@ -37,7 +37,6 @@ class XLSX {
 }
 
 class DDF extends XLSX {
-    constructor(path) {
         super(path);
         this.sheets.forEach((s, i) => {
             s.cases = [];
